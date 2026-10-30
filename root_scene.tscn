@@ -13,6 +13,15 @@ point_count = 2
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 1, Vector2(0.25661376, 0), 0.0, 0.0, 0, 0, Vector2(0.49999997, 1), 0.0, 0.0, 0, 0, Vector2(0.75661373, 0.011695862), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.048054732, 0.0, 1, 0]
 point_count = 5
 
+[sub_resource type="Gradient" id="Gradient_iqet6"]
+offsets = PackedFloat32Array(0, 0.058641974, 0.32407406, 0.55864197, 0.82098764, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0.3647059, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0.5403122, 0.21699417, 1, 0.39, 0.39, 1, 1)
+
+[sub_resource type="Curve" id="Curve_t2jh2"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="rootScene" type="Node2D" unique_id=554554413]
 script = ExtResource("1_s87u8")
 
@@ -27,22 +36,25 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.00062740414, 0, 0.022964265, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1242339168]
+[node name="starbg" type="CPUParticles2D" parent="." unique_id=1242339168]
 texture_filter = 1
 amount = 9100
 texture = ExtResource("2_iqet6")
-lifetime = 2.0
+lifetime = 3.0
 preprocess = 5.0
 explosiveness = 0.1
 randomness = 0.5
 emission_shape = 3
 emission_rect_extents = Vector2(8192, 8192)
 gravity = Vector2(0, 0)
-angle_min = -32.0
-angle_max = 32.0
 angle_curve = SubResource("Curve_8m412")
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_pt0c6")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("Gradient_iqet6")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_t2jh2")
 
 [node name="myGuy" parent="." unique_id=1796476442 instance=ExtResource("2_c77vg")]
 position = Vector2(579, 324)
