@@ -4,7 +4,7 @@ var moveTarget:float = 0
 var move:float = 0
 var turnTarget:float = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var turn:float = Input.get_axis("A","D")
 	rotation_degrees += turn * 6
 	#rotation_degrees = lerp(rotation_degrees,turnTarget,0.1)
